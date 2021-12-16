@@ -1,0 +1,176 @@
+---
+title: "Midpoint Deliverable"
+author: "Minho Kim, Jaiden York, Vincent Lee, Ainsley Lai"
+date: "5/20/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE, warning=FALSE}
+# [Ainsley Lai] An introduction of the problem domain and dataset (feel 
+#free to borrow language you used in your brainstorm assignment)
+# [] A paragraph of summary information, citing at least 5 values calculated
+#from the data
+# [Minho] A table of  aggregated data (e.g., that has been "grouped" 
+#by one of your features)
+# [Vincent Lee] Three charts that display information from the data 
+#(what you visualize is up to you). 
+
+library("knitr")
+library("plotly")
+library("ggplot2")
+library("dplyr")
+source("scripts/first_chart_script.R")
+source("scripts/second_chart_script.R")
+source("scripts/third_chart_script.R")
+source("scripts/table_script.R")
+source("scripts/summary_script.R")
+firearm_df <- read.csv("data/firearm_homicide.csv")
+police_df <- read.csv("data/police_killings.csv", stringsAsFactors = FALSE)
+gun_violence_df <- read.csv("data/gun_violence_abridged.csv",
+                            stringsAsFactors = FALSE)
+```
+
+## Introduction
+
+Our report aims to study the prominent trends in gun violence and malignant 
+usage in the United States. We chose to focus on this issue as it has been a hot
+topic in recent years, both regarding regular citizens and police forces. By 
+studying data surrounding the topic, we hope to uncover insights regarding gun 
+violence. Datasets were pulled from [Data-world](https://data.world/azel/
+gun-deaths-in-america/workspace/file?filename=full_data.csv), 
+[Kaggle](https://www.kaggle.com/ericking310/us-gun-violence), and
+[MappingPoliceViolence](https://mappingpoliceviolence.org/). 
+Furthermore, these datasets compiled their data from sources such as 
+FiveThirtyEight, the Gun Violence Archive, and nationwide police departments.
+
+## Summary Info
+```{r, echo=FALSE, warning=FALSE, include=FALSE}
+summary <- get_summary_info(firearm_df)
+# year_highest_deaths
+# year_lowest_deaths
+# month_highest_deaths
+# most_intent
+# most_race
+get_summary_info(firearm_df)
+```
+Based on 2012-2014 data found by FiveThirtyEight and the CDC, we can find that:
+
+- The year with the _highest_ deaths was `r summary$year_highest_deaths`
+- The year with the _lowest_ deaths was `r summary$year_lowest_deaths`
+- The month with the highest deaths was `r month.name[summary$month_highest_deaths]`
+- The most common intent for fatal gun usage was `r tolower(summary$most_intent)`
+- The race that was the most affected by firearms were `r summary$most_race` people
+
+## Aggregate Table
+
+```{r, echo=FALSE, warning=FALSE}
+kable(grouped_table(firearm_df,
+                    "race", "education", "BA+", "Some college", "HS/GED"
+                    , "Less than HS"),
+      col.names = c("Race", "Total", "Bachelors or higher", "Some college",
+                    "HS/GED", "Less than HS"))
+
+```
+**Aggregate Table** intends to show the relationship between social staus and 
+gun violation victims. 
+
+This aggregate table classifies victims by race and education. Both race and
+education represent social status of victims. Through this table, our team tries 
+to figure out the relationship between the gun violation victims and social 
+status. 
+
+White deaths are highest, followed by Black, Hispanic, Asian, and Native American. 
+Basically, there are more gun accident victims in a populous race, but the 
+proportion of black victims is higher than Hispanics, indicating that black 
+people has more possibility got shot from police . There are also more victims
+of high school graduates or people who did not like high school in all races 
+except Asians. This means that people involved in the lower the social 
+status (especially lower education) have more risk.
+
+## Charts
+
+### Chart 1:
+
+
+```{r, echo=FALSE, warning=FALSE}
+impacted_city(police_df)
+```
+
+Chart 1 intends to investigate the question of a lack of aggression and how it
+relates to the number of cases of police shootings.
+
+
+A scatter plot was employed for chart 1 because there are two numeric variables 
+being investigated. The number of people who did not express any level of 
+aggression is being correlated to the number of police shooting cases in this 
+chart. A scatter plot helps answer this because scatter plots work to present 
+and reveal the correlation between two variables.
+
+**Insights:** Major cities such as Los Angeles, Houston, Phoenix, and Chicago have 
+a relatively high number of cases corresponding to a high number of people who 
+were not aggressive to the responding law enforcement officers. This reveals 
+that there is potentially a common factor in major cities contributing to 
+officer shootings in non-threatening or non-aggressive situations. For example,
+a lack of adequate training could be a possibility as major cities need to 
+employ more officers since the population is more dense in major cities; this
+could result in less well-trained officers.Ideally, the trend would show that 
+police shootings and a lack of aggression from the subject individual are 
+negatively correlated; however, chart 1 presents a positive correlation. 
+Furthermore, it appears that most cities outside the aforementioned major 
+cities, have a relatively lower amount of cases. This suggests that there may 
+be underlying factors associated with the major cities that contribute to higher 
+rates of police shootings in non-aggressive situations.
+
+### Chart 2:
+
+```{r, echo=FALSE,message=FALSE, warning=FALSE}
+second_chart(gun_violence_df)
+```
+
+Chart 2 intends to investigate the relationship between states and the number of
+people directly affected by gun violence.
+
+Chart 2 is a stacked bar chart. The chart presents a visual representation of 
+the number of people killed and injured in gun involved incidents in each state 
+from 2017. A stacked bar chart was employed because of the ease of comparison it
+allows for readers when comparing the consequences of gun shootings in different
+states. The stacked bars allow for readers to differentiate between injury and 
+death. This is significant because often the amount of injuries is overlooked 
+in gun incidents and the focus is drawn towards deaths; however, injuries are 
+also impactful and should be considered in gun violence research.
+
+**Insights:** Illinois stands out as the most impacted city by gun violence and 
+shootings. This may suggest that there is an underlying factor present in 
+Illinois that significantly contributes to gun violence. One such factor could 
+be the presence of gang violence, as Illinois, and specifically Chicago, is 
+notorious for its gang-related violence. In contrast, Wyoming is the least 
+impacted city in terms of number of people killed or injured by gun violence. 
+This could suggest that there are specific attributes of Wyoming such 
+as effective gun regulations and laws or low population density which help limit
+the consequences of gun violence.
+
+
+### Chart 3:
+
+```{r, echo=FALSE, warning=FALSE}
+display_third_chart(firearm_df)
+```
+
+Chart 3 intends to investigate the different causes or forms of fatal gun usage
+such as suicides or homicides.
+
+Chart 3 is a pie chart depicting a breakdown of the 
+different types of fatal gun usage from 2013-2018. A pie chart is useful in this 
+case because there are multiple categories of fatal gun usage. Chart 3 allows 
+for readers to easily observe the distribution of causes when investigating 
+different causes of gun fatality. 
+
+**Insights:** The majority of firearm deaths(62.7%) suffered from 2013-2018 was a 
+result of suicide. This suggests that perhaps the ability for mentally unhealthy 
+individuals to access firearms is much easier than it should be. In addition, 
+accidental fatal gun usage makes up 1.63% of the gun fatalities which suggests 
+that current firearm training is effective in preventing accidents. 

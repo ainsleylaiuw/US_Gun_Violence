@@ -1,0 +1,40 @@
+h1 {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  font-family: Times New Roman;
+}
+
+em {
+  font-size: 18px;
+  font-family: Times New Roman;
+}
+
+p {
+  font-size: 18px;
+  font-family: Times New Roman;  
+}
+
+.navbar-default {
+  background-color: black;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: white;
+}
+
+.navbar-default .navbar-nav>li:hover {
+  background-color: dimgray;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: white;
+}

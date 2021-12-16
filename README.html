@@ -1,0 +1,133 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>README.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+
+        </style>
+  </head>
+  <body>
+    <h1 id="final-project">Final Project</h1>
+    <p>Minho Kim, Jaiden York, Vincent Lee, Ainsley Lai</p>
+    <hr />
+    <h2 id="domain-of-interest">Domain of Interest</h2>
+    <p>
+      <em>
+        <strong>Why are you interested in this field/domain?</strong>
+      </em>
+      <br />
+Our group is interested in the gun violence/shootings in the United States domain due to the current events surrounding gun violence in the U.S. We also thought that it would an interesting domain to look into because the data can reveal a great deal of information about who is commiting gun violence crimes and who are the victims.</p>
+    <p>
+      <em>
+        <strong>What other examples of data driven project have you found related to this domain?</strong>
+      </em>
+      <br />
+While researching the domain we encountered data projects that had information about:</p>
+    <ul>
+      <li>
+        <a href="https://www.statefirearmlaws.org/state-state-firearm-law-data">Gun regulations</a> by state via data visualizations and faceted searching to provide a broad view as well as give state-specific information.</li>
+      <li>
+        <a href="https://www.kaggle.com/shivamb/deep-exploration-of-gun-violence-in-us">Number of guns</a> used in a violent crimes covered in a Kaggle notebook that explored trends found in a dataset. <em>Section 4.1</em></li>
+      <li>
+        <a href="https://www.kaggle.com/washingtonpost/police-shootings">Fatal police shooting</a> from 2015-present through compilation of data.</li>
+    </ul>
+    <p>
+      <em>
+        <strong>What data-driven questions do you hope to answer about this domain (share at least 3)?</strong>
+      </em>
+    </p>
+    <ul>
+      <li>What is the connection between race and social status will gun violence?</li>
+      <li>Where is the highest rate of gun violence occurring?</li>
+      <li>Who are the victims of gun violence and what are their demographics?</li>
+    </ul>
+    <p>
+      <em>
+        <strong>How can these questions be answered using data?</strong>
+      </em>
+      <br />
+These questions can be answered by analyzing the gun violence data and comparing and cross-referencing sources to find a connection between different factors such as age, demographic and location to determine why gun violence is so prevalent in the United States. For instance, we can</p>
+    <ul>
+      <li>identify trends among race and social status with regards to gun violence.</li>
+      <li>group gun violence/shootings by location and sort the results.</li>
+      <li>arrange data to determine commonalities among victims.</li>
+    </ul>
+    <hr />
+    <h2 id="finding-data">Finding Data</h2>
+    <p>
+      <strong>Dataset 1:</strong>
+      <a href="https://mappingpoliceviolence.org/">https://mappingpoliceviolence.org/</a>
+      <br />
+File is found in "data/2013_to_2020_police_killings.csv"</p>
+    <ul>
+      <li>
+        <p>Data Collection: The site lists the following in regards to their source of data:</p>
+        <blockquote>
+          <p>"This information has been meticulously sourced from official police use of force data collection programs in states like California, Texas and Virginia, combined with nationwide data from the Fatal Encounters database, an impartial crowdsourced database on police killings. We've also done extensive original research to further improve the quality and completeness of the data; searching social media, obituaries, criminal records databases, police reports and other sources to identify the race of 90 percent of all victims in the database."</p>
+        </blockquote>
+      </li>
+      <li>
+        <p>Data Observations: There are 9,116 observations (rows)</p>
+      </li>
+      <li>
+        <p>Data Features: There are 34 features (columns)</p>
+      </li>
+      <li>
+        <p>This dataset focuses on police shootings rather than general gun violence. With that in mind, the dataset may answer questions regarding race, location, and other factors from the police side (encounter reason, unarmed/armed, call for service).</p>
+      </li>
+    </ul>
+    <p>
+      <strong>Dataset 2:</strong>
+      <a href="https://www.kaggle.com/ericking310/us-gun-violence">https://www.kaggle.com/ericking310/us-gun-violence</a>
+      <br />
+The data file is found in "data/archive.zip"</p>
+    <ul>
+      <li>
+        <p>Data Collection: This data is a collection of every recorded incident of gun violence in the U.S from 2013-2018. The dataset is originally gathered by <em>Gun Violence Archive</em> from over 7,500 sources. There are multiple copies of this collected data reorganized into dataframes on Kaggle.
+<a href="https://www.gunviolencearchive.org/methodology">Methodology of data collection described by GVA</a>:</p>
+        <blockquote>
+          <p>"GVA began with the goal to provide a database of incidents of gun violence and gun crime. To that end we utilize automated queries, manual research through over 7,500 sources from local and state police, media, data aggregates, government and other sources daily. Each incident is verified by both initial researchers and secondary validation processes. Links to each incident are included in the incident report to provide further information on each incident for researchers, advocate groups, media and legislative interests. The incident reports provide a starting point for researchers, media and legislative interests to add texture to our raw data."</p>
+        </blockquote>
+      </li>
+      <li>
+        <p>Data Observations: There are 239677 rows of data</p>
+      </li>
+      <li>
+        <p>Data Features: There are 29 columns of categories dividing the data.</p>
+      </li>
+      <li>
+        <p>Since this dataset provides a record of all gun-related incidents in the U.S from 2013-2018, the dataset can help answer questions regarding factors that are related to gun-violence such as gender, location, age, victims, extent of harm, gun type, etc.</p>
+      </li>
+    </ul>
+    <p>
+      <strong>Dataset 3:</strong>
+      <a href="https://data.world/azel/gun-deaths-in-america/workspace/file?filename=full_data.csv">Data-world website link</a>
+      <a href="https://www.cdc.gov/nchs/fastats/homicide.htm">USA CDC website link</a>
+      <br />
+File is found in "data/firearm_homicides.csv"</p>
+    <ul>
+      <li>
+        <p>Data Collection: This data is a collection of firearm homicides victims from 2012 to 2014. The data is from Data-world, which is a website that offers datasets in various areas. And the dataset is collected by the Centers for Disease Control and Prevention, which is a federal government department that works for public health and safety. The Centers for Disease Control and Prevention generated the dataset based on the reports from hospitals and police. The aggregator of the data, FiveThirtyEight, states:</p>
+        <blockquote>
+          <p>"The data in this interactive graphic comes primarily from the Centers for Disease Control and Prevention’s Multiple Cause of Death database, which is derived from death certificates from all 50 states and the District of Columbia and is widely considered the most comprehensive estimate of firearm deaths. In keeping with the CDC’s practice, deaths of non-U.S. residents that take place in the U.S. (about 50 per year) are excluded. All figures are averages from the years 2012 to 2014, except for police shootings of civilians, which are from 2014."</p>
+        </blockquote>
+      </li>
+      <li>
+        <p>Data Observations: There are 100798 observations (rows)</p>
+      </li>
+      <li>
+        <p>Data Features: There are 11 features (columns).</p>
+      </li>
+      <li>
+        <p>Our team can answers the questions, "Who are the victims of gun violence and what are their demographics?"</p>
+      </li>
+    </ul>
+  </body>
+</html>
