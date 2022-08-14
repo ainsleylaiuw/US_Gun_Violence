@@ -1,3 +1,4 @@
 *.R linguist-documentation=false
 *.R linguist-vendored
 *.R linguist-language=R
+index.html linguist-documentation=true
