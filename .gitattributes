@@ -1,2 +1,3 @@
+*.R linguist-documentation=false
 *.R linguist-detectable
 *.R linguist-language=R
