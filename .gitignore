@@ -40,3 +40,7 @@ rsconnect/
 
 # Git lfs thing
 .gitattributes
+
+# patching R detection issue?
+* linguist-documentation=false
+* linguist-vendored
